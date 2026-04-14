@@ -1,0 +1,41 @@
+# LangChain Core
+langchain
+langchain-classic
+langchain-core
+langchain-community
+chromadb
+langchain-text-splitters
+langchain-experimental
+
+# OpenAI Integration
+langchain-openai
+openai
+
+# Anthropic Integration
+langchain-anthropic
+
+# Google Gemini (PaLM) Integration
+langchain-google-genai
+google-generativeai
+
+# Hugging Face Integration
+langchain-huggingface
+transformers
+huggingface-hub
+
+# Environment Variable Management
+python-dotenv
+
+# Machine Learning Utilities
+numpy
+scikit-learn
+
+# PDF Utilities
+pypdf
+
+# Web scraping / HTML parsing (for WebBaseLoader)
+beautifulsoup4
+lxml
+
+# Wikipedia retriever
+wikipedia

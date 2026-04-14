@@ -1,0 +1,18 @@
+{
+    "name": null,
+    "input_variables": [
+        "game_mode",
+        "game_name",
+        "game_type",
+        "user_question"
+    ],
+    "optional_variables": [],
+    "output_parser": null,
+    "partial_variables": {},
+    "metadata": null,
+    "tags": null,
+    "template": "You are a game expert assistant.\n\nGame Type: {game_type}\nMode: {game_mode}\nGame Name: {game_name}\nUser Question: {user_question}\n\nInstructions:\n- Give a clear and beginner-friendly answer.\n- Include rules if relevant.\n- Add 3 practical tips.\n- Keep response short (max 150 words).",
+    "template_format": "f-string",
+    "validate_template": false,
+    "_type": "prompt"
+}

@@ -1,0 +1,15 @@
+.env
+.venv311/
+venv312/
+venv_old/
+__pycache__/
+*.py[cod]
+
+# Generated vector DB artifacts
+my_chroma_db/
+vectorstoredb/my_chroma_db/
+vectorstoredb/my_chroma_db_dance/
+
+# Personal / generated documents
+*.pdf
+Chat_Models/chat_history.txt
