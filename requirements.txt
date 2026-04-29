@@ -22,6 +22,8 @@ google-generativeai
 langchain-huggingface
 transformers
 huggingface-hub
+youtube-transcript-api
+faiss-cpu
 
 # Environment Variable Management
 python-dotenv
@@ -36,6 +38,7 @@ pypdf
 # Web scraping / HTML parsing (for WebBaseLoader)
 beautifulsoup4
 lxml
+ddgs
 
 # Wikipedia retriever
 wikipedia

@@ -56,11 +56,18 @@ vectorstore = FAISS.from_documents(chunks, embeddings)
 
 retriever = vectorstore.as_retriever(search_type="mmr", search_kwargs={"k": 5, "lambda_mult": 0.5})
 
+
+
 llm = ChatGoogleGenerativeAI(
     model="gemini-1.5-flash",
     temperature=0.6,
     max_retries=2
 )
+multi_query = MultiQueryRetriever.from_llm(
+    base_retriever=retriever,
+    llm=llm
+)
+
 
 prompt = PromptTemplate(
     template="""
@@ -78,7 +85,7 @@ def retriever_format(docs):
     return "\n\n".join(doc.page_content for doc in docs)
 
 parallel_chain = RunnableParallel({
-    "context": retriever | RunnableLambda(retriever_format),
+    "context": multi_query | RunnableLambda(retriever_format),
     "question": RunnablePassthrough()
 })
 
@@ -88,6 +95,6 @@ chain = parallel_chain | prompt | llm | parser
 
 print("Invoking chain...\n")
 print("-" * 50)
-result = chain.invoke("can you summarize the video")
+result = chain.invoke("What are the key points of the video?")
 print(result)
 print("-" * 50)
