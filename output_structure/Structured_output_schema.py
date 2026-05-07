@@ -32,6 +32,6 @@ template = PromptTemplate(
 
 chain = template | model | parser
 
-result = chain.invoke({"topic": "kim kadrashian"})
+result = chain.invoke({"topic": "mr.osho"})
 
 print(result.model_dump_json(indent=2))
