@@ -4,6 +4,7 @@ from dotenv import load_dotenv
 from langchain_community.vectorstores import Chroma
 from langchain_core.documents import Document
 from langchain_google_genai import GoogleGenerativeAIEmbeddings
+from langchain_text_splitters import RecursiveCharacterTextSplitter, Language
 
 load_dotenv()
 
@@ -66,6 +67,13 @@ docs = [
 
 persist_dir = Path(__file__).resolve().parent / "my_chroma_db_dance"
 
+splitter = RecursiveCharacterTextSplitter(
+    chunk_size=50,
+    chunk_overlap=15,
+)
+doc1s = splitter.split_documents(docs)
+
+
 vectorstore = Chroma(
     embedding_function=GoogleGenerativeAIEmbeddings(
         model="gemini-embedding-001",
@@ -75,7 +83,7 @@ vectorstore = Chroma(
     collection_name="classical_dance",
 )
 
-vectorstore.add_documents(docs)
+vectorstore.add_documents(doc1s)
 
 print(vectorstore.get(include=["embeddings", "documents", "metadatas"]))
 print(
